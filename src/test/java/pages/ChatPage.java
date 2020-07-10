@@ -21,8 +21,8 @@ public class ChatPage extends BasePage {
     private static final String INVITE_USERS_TO_CHAT_BUTTON_ID = "invite-users-to-chat";
 
     @Override
-    public BasePage openPage() {
-        return null;
+    public ChatPage openPage() {
+        return this;
     }
 
     @Override

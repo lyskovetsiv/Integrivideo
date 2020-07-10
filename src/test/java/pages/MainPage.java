@@ -11,7 +11,6 @@ public class MainPage extends BasePage {
 
     private static final String MAIN_PAGE_URL = "https://dev.integrivideo.com/";
     private static final String FREE_SIGN_UP_BUTTON_CSS = ".col-xl-12 .btn.btn-primary";
-    private static final String CLOUD_VIDEO_RECORDER_BUTTON_XPATH = "//*[contains(text(),'Cloud video recorder')]/parent::*/*/*[contains(@class,'btn')]";
     private static final String CHAT_BUTTON_XPATH = "//*[contains(text(),'Chat')]/parent::*/*/*[contains(@class,'btn')]";
 
 
