@@ -36,11 +36,11 @@ public class ChatPage extends BasePage {
         return this;
     }
 
-    public ChatPage validateInviteURL() throws IOException, UnsupportedFlavorException {
+    public String validateInviteURL() throws IOException, UnsupportedFlavorException {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Clipboard clipboard = toolkit.getSystemClipboard();
         String chatLink = (String) clipboard.getData(DataFlavor.stringFlavor);
         assertEquals(url(), chatLink, "Incorrect chat link");
-        return this;
+        return chatLink;
     }
 }
