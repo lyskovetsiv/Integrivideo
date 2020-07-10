@@ -27,13 +27,6 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public CloudVideoPage openCloudVideoPage() {
-        $(CLOUD_VIDEO_RECORDER_BUTTON_XPATH).click();
-        CloudVideoPage cloudVideoPage = new CloudVideoPage();
-        cloudVideoPage.isPageOpened();
-        return cloudVideoPage;
-    }
-
     public ChatPage openChatPage() {
         $(byXpath(CHAT_BUTTON_XPATH)).click();
         ChatPage chatPage = new ChatPage();
