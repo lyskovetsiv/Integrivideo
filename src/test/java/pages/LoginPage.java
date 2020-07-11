@@ -25,12 +25,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public MainPage login(String email, String password) {
+    public ProjectsPage login(String email, String password) {
         $(byName(EMAIL_FIELD)).setValue(email);
         $(byName(PASSWORD_FIELD)).setValue(password);
         $(LOG_IN_BUTTON_CSS).click();
-        MainPage mainPage = new MainPage();
-        mainPage.isPageOpened();
-        return mainPage;
+        ProjectsPage projectsPage = new ProjectsPage();
+        projectsPage.isPageOpened();
+        return projectsPage;
     }
 }
