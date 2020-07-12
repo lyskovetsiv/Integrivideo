@@ -22,5 +22,4 @@ public class ProjectsPage extends BasePage {
         $(byId(MENU_ID)).waitUntil(Condition.visible, 20000);
         return this;
     }
-
 }
