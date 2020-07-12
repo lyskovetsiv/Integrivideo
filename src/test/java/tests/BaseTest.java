@@ -3,12 +3,14 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import pages.ChatPage;
 import pages.LoginPage;
 import pages.MainPage;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
+@Listeners(TestListener.class)
 public class BaseTest {
 
     LoginPage loginPage;
