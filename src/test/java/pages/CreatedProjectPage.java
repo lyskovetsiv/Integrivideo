@@ -23,4 +23,11 @@ public class CreatedProjectPage extends BasePage {
     public String getProjectName() {
         return $(PROJECT_NAME_CSS).getText();
     }
+
+    public ComponentCreationPage addNewComponent() {
+        $(ADD_NEW_COMPONENT_CSS).click();
+        ComponentCreationPage componentCreationPage = new ComponentCreationPage();
+        componentCreationPage.isPageOpened();
+        return componentCreationPage;
+    }
 }
