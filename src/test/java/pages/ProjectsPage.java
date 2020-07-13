@@ -13,6 +13,7 @@ public class ProjectsPage extends BasePage {
     private static final String MENU_ID = "navbarMenu";
     private static final String ADD_PROJECT_CSS = ".project.new";
     private static final String ALL_CREATED_PROJECTS_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*";
+    private static final String LAST_CREATED_PROJECT_URL_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*/*/*";
 
     @Override
     public ProjectsPage openPage() {
@@ -40,11 +41,18 @@ public class ProjectsPage extends BasePage {
         return createdProjectPage;
     }
 
-    public CreatedProjectPage verifyCreationOfNewProject(String projectName) {
+    public String getLastProjectUrl() {
+        return $$(byXpath(LAST_CREATED_PROJECT_URL_XPATH)).last().getAttribute("href");
+    }
+
+    public CreatedProjectPage verifyCreationOfNewProject(String projectName, String description) {
+        String projectUrl = getLastProjectUrl();
         $$(byXpath(ALL_CREATED_PROJECTS_XPATH)).last().click();
         CreatedProjectPage createdProjectPage = new CreatedProjectPage();
         createdProjectPage.isPageOpened();
-        assertEquals(createdProjectPage.getProjectName(), projectName, "Project named " + projectName + " has not been created");
+        assertEquals(createdProjectPage.getProjectUrl(), projectUrl, "Project URL is wrong");
+        assertEquals(createdProjectPage.getProjectName(), projectName, "Project name: " + projectName + " is wrong");
+        assertEquals(createdProjectPage.getProjectDescription(), description, "Project description " + description + " is wrong");
         return createdProjectPage;
     }
 }

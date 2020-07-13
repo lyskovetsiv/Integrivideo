@@ -11,6 +11,6 @@ public class CreateProjectTest extends BaseTest {
                 .login("user.test.16@mail.ru", "pass123test")
                 .addNewProject()
                 .createNewProject(project);
-        projectsPage.verifyCreationOfNewProject(project.getProjectName());
+        projectsPage.verifyCreationOfNewProject(project.getProjectName(), project.getDescription());
     }
 }
