@@ -9,5 +9,5 @@ public class Project {
 
     private String projectName;
     private String description;
-    private String domain;
+    private String[] domain;
 }

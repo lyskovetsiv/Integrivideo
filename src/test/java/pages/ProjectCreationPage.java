@@ -5,8 +5,7 @@ import models.Project;
 
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectCreationPage extends BasePage {
 
@@ -31,7 +30,9 @@ public class ProjectCreationPage extends BasePage {
     public Project createNewProject(Project project) {
         $(byName(PROJECT_NAME_NAME)).setValue(project.getProjectName());
         $(DESCRIPTION_CSS).setValue(project.getDescription());
-        $(byName(DOMAIN_NAME)).setValue(project.getDomain());
+        for(int i = 0; i<project.getDomain().length; i++) {
+            $$(byName(DOMAIN_NAME)).last().setValue(project.getDomain()[i]);
+        }
         $(byXpath(CREATE_BUTTON_XPATH)).click();
         ProjectsPage projectsPage = new ProjectsPage();
         projectsPage.isPageOpened();

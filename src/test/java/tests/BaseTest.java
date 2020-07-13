@@ -30,7 +30,7 @@ public class BaseTest {
         Configuration.timeout = 20000;
         Configuration.browser = "Chrome";
         Configuration.clickViaJs = false;
-        project = new Project("TestProject", "my project", "testdomain.su");
+        project = new Project("TestProject", "my project", new String[]{"testdomain.su", "secondDomain.ru", "thirddomain.com"});
         component = new Component("VideoSingle", "TestComponent");
         loginPage = new LoginPage();
         mainPage = new MainPage();
