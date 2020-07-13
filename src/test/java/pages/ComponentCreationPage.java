@@ -11,12 +11,12 @@ public class ComponentCreationPage extends BasePage {
 
     private static final String CREATE_BUTTON_XPATH = "//*[contains(@id, 'component-form')]/descendant::*[contains(text(), 'Create')]";
     private static final String UPDATE_BUTTON_XPATH = "//*[contains(@id, 'component-form')]/descendant::*[contains(text(), 'Update')]";
-    private static final String COMPONENT_TYPE_CSS = ".select2-selection.select2-selection--single";
     private static final String SELECT_CSS = ".form-control.select2-hidden-accessible";
     private static final String COMPONENT_NAME_NAME = "name";
 
     @Override
-    public ComponentCreationPage openPage() {
+    public ComponentCreationPage openPage()
+    {
         return this;
     }
 
