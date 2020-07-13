@@ -9,14 +9,13 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class ComponentCreationPage extends BasePage {
 
-    private static final String CREATE_BUTTON_XPATH = "//*[contains(@id, 'component-form')]/descendant::*[contains(text(), 'Create')]";
-    private static final String UPDATE_BUTTON_XPATH = "//*[contains(@id, 'component-form')]/descendant::*[contains(text(), 'Update')]";
+    private static final String CREATE_BUTTON_XPATH = "//*[contains(text(), 'Create')]";
+    private static final String UPDATE_BUTTON_XPATH = "//*[contains(text(), 'Update')]";
     private static final String SELECT_CSS = ".form-control.select2-hidden-accessible";
     private static final String COMPONENT_NAME_NAME = "name";
 
     @Override
-    public ComponentCreationPage openPage()
-    {
+    public ComponentCreationPage openPage() {
         return this;
     }
 

@@ -10,8 +10,8 @@ import static org.testng.Assert.assertEquals;
 public class CreatedProjectPage extends BasePage {
 
     private static final String ADD_NEW_COMPONENT_CSS = ".component.new";
-    private static final String PROJECT_NAME_CSS = ".col-10>h1";
-    private static final String ALL_CREATED_COMPONENTS_XPATH = "//*[contains(@class, 'component new')]/parent::*/preceding-sibling::*/*/*";
+    private static final String PROJECT_NAME_CSS = "h1";
+    private static final String ALL_CREATED_COMPONENTS_XPATH = "//*[@Class='component']";
 
     @Override
     public CreatedProjectPage openPage() {
