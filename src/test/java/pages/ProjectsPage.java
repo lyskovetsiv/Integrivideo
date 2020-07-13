@@ -33,6 +33,13 @@ public class ProjectsPage extends BasePage {
         return projectCreationPage;
     }
 
+    public CreatedProjectPage getLastProject() {
+        $$(byXpath(ALL_CREATED_PROJECTS_XPATH)).last().click();
+        CreatedProjectPage createdProjectPage = new CreatedProjectPage();
+        createdProjectPage.isPageOpened();
+        return createdProjectPage;
+    }
+
     public CreatedProjectPage verifyCreationOfNewProject(String projectName) {
         $$(byXpath(ALL_CREATED_PROJECTS_XPATH)).last().click();
         CreatedProjectPage createdProjectPage = new CreatedProjectPage();
