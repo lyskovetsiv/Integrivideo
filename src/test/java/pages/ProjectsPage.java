@@ -50,9 +50,9 @@ public class ProjectsPage extends BasePage {
         $$(byXpath(ALL_CREATED_PROJECTS_XPATH)).last().click();
         CreatedProjectPage createdProjectPage = new CreatedProjectPage();
         createdProjectPage.isPageOpened();
-        assertEquals(createdProjectPage.getProjectUrl(), projectUrl, "Project URL is wrong");
-        assertEquals(createdProjectPage.getProjectName(), projectName, "Project name: " + projectName + " is wrong");
-        assertEquals(createdProjectPage.getProjectDescription(), description, "Project description " + description + " is wrong");
+        assertEquals(createdProjectPage.getProjectUrl(), projectUrl,"Project URL is wrong");
+        assertEquals(createdProjectPage.getProjectName(), projectName,"Project name: " + projectName + " is wrong");
+        assertEquals(createdProjectPage.getProjectDescription(), description,"Project description: " + description + " is wrong");
         return createdProjectPage;
     }
 }

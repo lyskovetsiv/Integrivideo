@@ -31,7 +31,7 @@ public class BaseTest {
         Configuration.browser = "Chrome";
         Configuration.clickViaJs = false;
         project = new Project("TestProject", "my project", new String[]{"testdomain.su", "secondDomain.ru", "thirddomain.com"});
-        component = new Component("VideoSingle", "TestComponent");
+        component = new Component("Single Video", "TestComponent");
         loginPage = new LoginPage();
         mainPage = new MainPage();
         chatPage = new ChatPage();

@@ -13,6 +13,7 @@ public class CreatedProjectPage extends BasePage {
     private static final String PROJECT_NAME_CSS = "h1";
     private static final String ALL_CREATED_COMPONENTS_XPATH = "//*[@Class='component']";
     private static final String DESCRIPTION_CSS = ".description";
+    private static final String LAST_COMPONENT_XPATH = "//*[@Class='component']/*";
 
 
     @Override
@@ -40,6 +41,10 @@ public class CreatedProjectPage extends BasePage {
         return url();
     }
 
+    public String getLastComponentUrl() {
+        return $$(byXpath(LAST_COMPONENT_XPATH)).last().getAttribute("href");
+    }
+
     public ComponentCreationPage addNewComponent() {
         $(ADD_NEW_COMPONENT_CSS).click();
         ComponentCreationPage componentCreationPage = new ComponentCreationPage();
@@ -47,8 +52,14 @@ public class CreatedProjectPage extends BasePage {
         return componentCreationPage;
     }
 
-    public CreatedProjectPage verifyComponent(String componentUrl) {
-        assertEquals($$(byXpath(ALL_CREATED_COMPONENTS_XPATH)).last().getAttribute("href"), componentUrl, "Component has not been created");
-        return this;
+    public ComponentCreationPage verifyComponent(String componentType, String componentName) {
+        String lastComponentUrl = getLastComponentUrl();
+        $$(byXpath(ALL_CREATED_COMPONENTS_XPATH)).last().click();
+        ComponentCreationPage componentCreationPage = new ComponentCreationPage();
+        componentCreationPage.isPageOpened();
+        assertEquals(componentCreationPage.getComponentUrl(), lastComponentUrl, "Component has not been created");
+        assertEquals(componentCreationPage.getComponentType(), componentType, "Component type: " + componentType + " is wrong");
+        assertEquals(componentCreationPage.getComponentName(), componentName,"Component name: " + componentName + " is wrong");
+        return componentCreationPage;
     }
 }
