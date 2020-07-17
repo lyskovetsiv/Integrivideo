@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import models.Component;
+import models.CreditCard;
 import models.Project;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -15,6 +16,7 @@ public class BaseTest {
 
     Project project;
     Component component;
+    CreditCard creditCard;
     LoginPage loginPage;
     MainPage mainPage;
     ChatPage chatPage;
@@ -22,6 +24,8 @@ public class BaseTest {
     ProjectCreationPage projectCreationPage;
     CreatedProjectPage createdProjectPage;
     ComponentCreationPage componentCreationPage;
+    BillingPage billingPage;
+    PaymentMethodPage paymentMethodPage;
 
     @BeforeTest
     public void setupBrowser() {
@@ -32,6 +36,7 @@ public class BaseTest {
         Configuration.clickViaJs = false;
         project = new Project("TestProject", "my project", new String[]{"testdomain.su", "secondDomain.ru", "thirddomain.com"});
         component = new Component("Single Video", "TestComponent");
+        creditCard = new CreditCard("4242424242424242", "07", "23", "USER TEST");
         loginPage = new LoginPage();
         mainPage = new MainPage();
         chatPage = new ChatPage();
@@ -39,6 +44,8 @@ public class BaseTest {
         projectCreationPage = new ProjectCreationPage();
         createdProjectPage = new CreatedProjectPage();
         componentCreationPage = new ComponentCreationPage();
+        billingPage = new BillingPage();
+        paymentMethodPage = new PaymentMethodPage();
 
     }
 

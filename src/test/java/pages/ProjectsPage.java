@@ -14,6 +14,7 @@ public class ProjectsPage extends BasePage {
     private static final String ADD_PROJECT_CSS = ".project.new";
     private static final String ALL_CREATED_PROJECTS_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*";
     private static final String LAST_CREATED_PROJECT_URL_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*/*/*";
+    private static final String BILLING_XPATH = "//*[contains(text(), 'Billing')]";
 
     @Override
     public ProjectsPage openPage() {
@@ -43,6 +44,13 @@ public class ProjectsPage extends BasePage {
 
     public String getLastProjectUrl() {
         return $$(byXpath(LAST_CREATED_PROJECT_URL_XPATH)).last().getAttribute("href");
+    }
+
+    public BillingPage clickBillingButton() {
+        $(byXpath(BILLING_XPATH)).click();
+        BillingPage billingPage = new BillingPage();
+        billingPage.isPageOpened();
+        return billingPage;
     }
 
     public CreatedProjectPage verifyCreationOfNewProject(String projectName, String description) {
