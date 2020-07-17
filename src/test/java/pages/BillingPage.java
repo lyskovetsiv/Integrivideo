@@ -27,7 +27,7 @@ public class BillingPage extends BasePage {
         return this;
     }
 
-    public Integer getNumberOfCardsAdded() {
+    public int getNumberOfCardsAdded() {
         return $$(ALL_CARDS_CSS).size();
     }
 
@@ -38,14 +38,9 @@ public class BillingPage extends BasePage {
         return paymentMethodPage;
     }
 
-    public Integer removeLastCard() {
+    public int removeLastCard() {
         int initialCardQuantity = getNumberOfCardsAdded();
-        try {
             $$(ALL_CARD_REMOVE_BUTTON_CSS).last().click();
-        }
-        catch (ArrayIndexOutOfBoundsException exeption) {
-            fail("There are no cards created");
-        }
         return initialCardQuantity;
     }
 
