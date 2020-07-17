@@ -14,10 +14,12 @@ public class CreatedProjectPage extends BasePage {
     private static final String ALL_CREATED_COMPONENTS_XPATH = "//*[@Class='component']";
     private static final String DESCRIPTION_CSS = ".description";
     private static final String LAST_COMPONENT_XPATH = "//*[@Class='component']/*";
-
+    private static final String BASE_URL = "https://dev.integrivideo.com/";
 
     @Override
     public CreatedProjectPage openPage() {
+        ProjectsPage projectsPage = new ProjectsPage();
+        open(BASE_URL + projectsPage.openPage().getLastProjectUrl());
         return this;
     }
 

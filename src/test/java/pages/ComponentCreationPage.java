@@ -5,6 +5,7 @@ import models.Component;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class ComponentCreationPage extends BasePage {
@@ -13,11 +14,14 @@ public class ComponentCreationPage extends BasePage {
     private static final String UPDATE_BUTTON_XPATH = "//*[contains(text(), 'Update')]";
     private static final String SELECT_CSS = ".form-control.select2-hidden-accessible";
     private static final String COMPONENT_NAME_NAME = "name";
+    private static final String BASE_URL = "https://dev.integrivideo.com/";
     private static final String COMPONENT_CREATION_PAGE_URL = "/components/new";
     private static final String COMPONENT_TYPE_NAME = "type";
 
     @Override
     public ComponentCreationPage openPage() {
+        ProjectsPage projectsPage = new ProjectsPage();
+        open(BASE_URL + projectsPage.openPage().getLastProjectUrl() + COMPONENT_CREATION_PAGE_URL);
         return this;
     }
 
