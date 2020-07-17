@@ -18,8 +18,6 @@ public class CreatedProjectPage extends BasePage {
 
     @Override
     public CreatedProjectPage openPage() {
-        ProjectsPage projectsPage = new ProjectsPage();
-        open(projectsPage.getLastProjectUrl());
         return this;
     }
 

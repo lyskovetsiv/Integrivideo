@@ -19,8 +19,6 @@ public class ComponentCreationPage extends BasePage {
 
     @Override
     public ComponentCreationPage openPage() {
-        ProjectsPage projectsPage = new ProjectsPage();
-        open(projectsPage.getLastProjectUrl() + COMPONENT_CREATION_PAGE_URL);
         return this;
     }
 
