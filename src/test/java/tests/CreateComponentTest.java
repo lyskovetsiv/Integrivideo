@@ -11,7 +11,7 @@ public class CreateComponentTest extends BaseTest {
                 .login("user.test.16@mail.ru", "pass123test")
                 .getLastProject()
                 .addNewComponent()
-                .createNewComponent(component);
-        createdProjectPage.verifyComponent(component.getComponentTypeValue(), component.getComponentName());
+                .createNewComponent(component)
+                .verifyComponent(component.getComponentTypeValue(), component.getComponentName());
     }
 }
