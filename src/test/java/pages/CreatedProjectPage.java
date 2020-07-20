@@ -53,11 +53,9 @@ public class CreatedProjectPage extends BasePage {
     }
 
     public ComponentCreationPage verifyComponent(String componentType, String componentName) {
-        String lastComponentUrl = getLastComponentUrl();
         $$(byXpath(ALL_CREATED_COMPONENTS_XPATH)).last().click();
         ComponentCreationPage componentCreationPage = new ComponentCreationPage();
         componentCreationPage.isPageOpened();
-        assertEquals(componentCreationPage.getComponentUrl(), lastComponentUrl, "Component has not been created");
         assertEquals(componentCreationPage.getComponentType(), componentType, "Component type: " + componentType + " is wrong");
         assertEquals(componentCreationPage.getComponentName(), componentName,"Component name: " + componentName + " is wrong");
         return componentCreationPage;

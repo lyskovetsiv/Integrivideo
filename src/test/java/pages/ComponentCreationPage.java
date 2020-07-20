@@ -49,8 +49,6 @@ public class ComponentCreationPage extends BasePage {
         $(byXpath(CREATE_BUTTON_XPATH)).click();
         $(byXpath(UPDATE_BUTTON_XPATH)).waitUntil(Condition.visible, 20000);
         $(byXpath(UPDATE_BUTTON_XPATH)).click();
-        CreatedProjectPage createdProjectPage = new CreatedProjectPage();
-        createdProjectPage.isPageOpened();
         return component;
     }
 }
