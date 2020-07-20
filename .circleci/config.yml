@@ -25,7 +25,7 @@ jobs:
       # run tests!
       - run:
           name: Running tests
-          command: mvn clean install
+          command: mvn clean test
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -47,6 +47,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - circleci
     jobs:
       - ui-tests
