@@ -11,7 +11,6 @@ import org.testng.ITestResult;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 
 public class TestListener implements ITestListener {
 
