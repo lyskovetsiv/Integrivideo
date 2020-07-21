@@ -15,6 +15,7 @@ public class ProjectsPage extends BasePage {
     private static final String ALL_CREATED_PROJECTS_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*";
     private static final String LAST_CREATED_PROJECT_URL_XPATH = "//*[contains(@class, 'project new')]/parent::*/preceding-sibling::*/*/*";
     private static final String BILLING_XPATH = "//*[contains(text(), 'Billing')]";
+    private static final String LOGOUT_XPATH = "//*[contains(text(), 'Logout')]";
 
     @Override
     public ProjectsPage openPage() {
@@ -51,6 +52,13 @@ public class ProjectsPage extends BasePage {
         BillingPage billingPage = new BillingPage();
         billingPage.isPageOpened();
         return billingPage;
+    }
+
+    public MainPage clickLogoutButton() {
+        $(byXpath(LOGOUT_XPATH)).click();
+        MainPage mainPage = new MainPage();
+        mainPage.isPageOpened();
+        return mainPage;
     }
 
     public CreatedProjectPage verifyCreationOfNewProject(String projectName, String description) {

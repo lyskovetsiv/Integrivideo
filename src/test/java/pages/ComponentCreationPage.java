@@ -43,12 +43,14 @@ public class ComponentCreationPage extends BasePage {
         return url();
     }
 
-    public Component createNewComponent(Component component) {
+    public CreatedProjectPage createNewComponent(Component component) {
         $(SELECT_CSS).selectOption(component.getComponentTypeValue());
         $(byName(COMPONENT_NAME_NAME)).setValue(component.getComponentName());
         $(byXpath(CREATE_BUTTON_XPATH)).click();
         $(byXpath(UPDATE_BUTTON_XPATH)).waitUntil(Condition.visible, 20000);
         $(byXpath(UPDATE_BUTTON_XPATH)).click();
-        return component;
+        CreatedProjectPage createdProjectPage = new CreatedProjectPage();
+        createdProjectPage.isPageOpened();
+        return createdProjectPage;
     }
 }

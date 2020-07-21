@@ -4,9 +4,7 @@ import com.codeborne.selenide.Configuration;
 import models.Component;
 import models.CreditCard;
 import models.Project;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -27,7 +25,7 @@ public class BaseTest {
     BillingPage billingPage;
     PaymentMethodPage paymentMethodPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void setupBrowser() {
         Configuration.headless = false;
         Configuration.startMaximized = true;
@@ -49,8 +47,8 @@ public class BaseTest {
 
     }
 
-    @AfterTest(alwaysRun = true)
-        public void closeBrowser() {
+    @AfterMethod(alwaysRun = true)
+    public void closeBrowser() {
         getWebDriver().quit();
     }
 }
