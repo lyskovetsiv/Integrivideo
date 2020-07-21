@@ -25,7 +25,7 @@ public class BaseTest {
     BillingPage billingPage;
     PaymentMethodPage paymentMethodPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void setupBrowser() {
         Configuration.headless = false;
         Configuration.startMaximized = true;
@@ -47,7 +47,7 @@ public class BaseTest {
 
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
         getWebDriver().quit();
     }

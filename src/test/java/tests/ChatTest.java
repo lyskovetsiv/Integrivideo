@@ -6,25 +6,13 @@ import org.testng.annotations.Test;
 public class ChatTest extends BaseTest{
 
     @SneakyThrows
-    @Test(priority = 1)
-    public void chatUrlValidation() {
-        chatPage.openPage()
-                .validateInviteURL(chatPage.generateInviteLink());
-    }
-
-    @Test(priority = 2)
+    @Test
     public void messageValidation() {
-                chatPage.verifyMessage(chatPage.sendMessage("Test message 1234!@#$%^&*("));
-    }
-
-    @Test(priority = 3)
-    public void editMessageValidation() {
-        chatPage.verifyEditedMessage(chatPage.editMessage("Edited message"));
-    }
-
-    @Test(priority = 4)
-    public void deleteMessageValidation() {
-        chatPage.deleteMessage()
+        chatPage.openPage()
+                .validateInviteURL(chatPage.generateInviteLink())
+                .verifyMessage(chatPage.sendMessage("Test message 1234!@#$%^&*("))
+                .verifyEditedMessage(chatPage.editMessage("Edited message"))
+                .deleteMessage()
                 .verifyDeletedMessage();
     }
 }
